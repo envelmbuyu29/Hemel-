@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Maajabu Gospel - Événements Musicaux</title>
+
+    <!-- Import Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- GSAP pour les animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        /* Background avec effet flou */
+        body {
+            background: url('./img/bg1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .event-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .event-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 30px rgba(255, 255, 0, 0.7);
+        }
+
+        /* Style de la section des événements */
+        .event-details {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .event-details.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="relative">
+
+    <!-- Navbar -->
+    <nav class="fixed z-50 w-full p-4 bg-white shadow-md">
+        <div class="flex items-center justify-between mx-auto max-w-7xl">
+            <div class="text-3xl font-bold text-black first-letter:text-yellow-500">Maajabu Gospel</div>
+            
+            <!-- Menu Hamburger -->
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-3xl">
+                    <i class='text-black bx bx-menu'></i>
+                </button>
+            </div>
+            
+            <!-- Menu -->
+            <ul id="navlist" class="hidden gap-6 text-xl text-black md:flex">
+                <li><a href="acueil.html" class="hover:text-yellow-500">Accueil</a></li>
+                <li><a href="about.html" class="hover:text-yellow-500">A propos</a></li>
+                <li><a href="disco.html" class="hover:text-yellow-500">Discographie</a></li>
+                <li><a href="media.html" class="hover:text-yellow-500">Médias</a></li>
+                <li><a href="contact.html" class="hover:text-yellow-500">Contact</a></li>
+            </ul>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="flex flex-col hidden gap-4 p-4 text-center text-black bg-white md:hidden">
+            <a href="acueil.html" class="hover:text-yellow-500">Accueil</a>
+            <a href="about.html" class="hover:text-yellow-500">A propos</a>
+            <a href="disco.html" class="hover:text-yellow-500">Discographie</a>
+            <a href="media.html" class="hover:text-yellow-500">Médias</a>
+            <a href="contact.html" class="hover:text-yellow-500">Contact</a>
+        </div>
+    </nav>
+
+   
+    <!-- Titre principal -->
+    <header class="flex flex-col items-center justify-center h-screen text-center" id="hero">
+        <h1 class="text-5xl font-extrabold text-yellow-400 opacity-0" id="hero-title">Nos Événements Musicaux</h1>
+        <p class="mt-4 text-lg opacity-0" id="hero-subtitle">Venez vivre des moments inoubliables avec Maajabu Gospel!</p>
+    </header>
+
+    <script>
+        // Animation GSAP pour l'apparition du titre et du sous-titre
+        document.addEventListener("DOMContentLoaded", function () {
+            // Animation du titre
+            gsap.fromTo("#hero-title", { opacity: 0, y: -100 }, { opacity: 1, y: 0, duration: 1.5, delay: 0.5, ease: "power3.out" });
+
+            // Animation du sous-titre
+            gsap.fromTo("#hero-subtitle", { opacity: 0, y: 100 }, { opacity: 1, y: 0, duration: 1.5, delay: 1, ease: "power3.out" });
+        });
+    </script>
+
+    <!-- Section des Événements -->
+    <section class="grid gap-8 px-6 py-12 mx-auto max-w-7xl md:grid-cols-3">
+
+        
+        <!-- Événement 1 -->
+        <div class="relative p-6 bg-black rounded-lg shadow-lg bg-opacity-60 event-card">
+            <img src="img/maxresdefault.jpg" alt="Événement 1" class="w-full rounded-lg">
+            <h2 class="mt-4 text-2xl font-bold text-yellow-400">Concert à Paris</h2>
+            <p class="mt-2">Le 15 mai 2025 - 20h00</p>
+            <button class="absolute font-bold text-white bottom-4 right-4 hover:text-yellow-400 show-details" data-event="event1">Voir Détails →</button>
+            <div class="mt-4 event-details" id="event1">
+                <p><strong>Lieu:</strong> AccorHotels Arena, Paris</p>
+                <p><strong>Description:</strong> Un concert exceptionnel avec tous les titres emblématiques de Maajabu Gospel. Venez vibrer au rythme de la musique gospel en direct!</p>
+            </div>
+        </div>
+
+        <!-- Événement 2 -->
+        <div class="relative p-6 bg-black rounded-lg shadow-lg bg-opacity-60 event-card">
+            <img src="img/maajabu23.jpg" alt="Événement 2" class="w-full rounded-lg">
+            <h2 class="mt-4 text-2xl font-bold text-yellow-400">Festival de Musique Gospel</h2>
+            <p class="mt-2">Le 20 juin 2025 - 18h00</p>
+            <button class="absolute font-bold text-white bottom-4 right-4 hover:text-yellow-400 show-details" data-event="event2">Voir Détails →</button>
+            <div class="mt-4 event-details" id="event2">
+                <p><strong>Lieu:</strong> Zénith de Paris</p>
+                <p><strong>Description:</strong> Joignez-vous à nous pour un festival unique en son genre, mettant en avant les talents les plus brillants de la musique gospel.</p>
+            </div>
+        </div>
+
+        <!-- Événement 3 -->
+        <div class="relative p-6 bg-black rounded-lg shadow-lg bg-opacity-60 event-card">
+            <img src="img/cover4.jpg" alt="Événement 3" class="w-full rounded-lg">
+            <h2 class="mt-4 text-2xl font-bold text-yellow-400">Soirée Gospel Live</h2>
+            <p class="mt-2">Le 10 juillet 2025 - 21h00</p>
+            <button class="absolute font-bold text-white bottom-4 right-4 hover:text-yellow-400 show-details" data-event="event3">Voir Détails →</button>
+            <div class="mt-4 event-details" id="event3">
+                <p><strong>Lieu:</strong> Salle Pleyel, Paris</p>
+                <p><strong>Description:</strong> Un événement magique où la musique gospel rencontre le théâtre, avec des performances live de Maajabu Gospel.</p>
+            </div>
+        </div>
+
+        <!-- Événement 4 -->
+        <div class="relative p-6 bg-black rounded-lg shadow-lg bg-opacity-60 event-card">
+            <img src="img/images.jpeg" alt="Événement 4" class="w-full rounded-lg">
+            <h2 class="mt-4 text-2xl font-bold text-yellow-400">Concert au Stade de France</h2>
+            <p class="mt-2">Le 5 août 2025 - 19h30</p>
+            <button class="absolute font-bold text-white bottom-4 right-4 hover:text-yellow-400 show-details" data-event="event4">Voir Détails →</button>
+            <div class="mt-4 event-details" id="event4">
+                <p><strong>Lieu:</strong> Stade de France, Saint-Denis</p>
+                <p><strong>Description:</strong> Venez célébrer la musique gospel dans le plus grand stade de France avec des invités spéciaux et des performances exceptionnelles!</p>
+            </div>
+        </div>
+
+        <!-- Événement 5 -->
+        <div class="relative p-6 bg-black rounded-lg shadow-lg bg-opacity-60 event-card">
+            <img src="img/gimsconcertstadedefrance03.jpg" alt="Événement 5" class="w-full rounded-lg">
+            <h2 class="mt-4 text-2xl font-bold text-yellow-400">Gospel Night à Lyon</h2>
+            <p class="mt-2">Le 18 septembre 2025 - 20h00</p>
+            <button class="absolute font-bold text-white bottom-4 right-4 hover:text-yellow-400 show-details" data-event="event5">Voir Détails →</button>
+            <div class="mt-4 event-details" id="event5">
+                <p><strong>Lieu:</strong> Auditorium de Lyon</p>
+                <p><strong>Description:</strong> Une soirée dédiée à la musique gospel, où Maajabu Gospel et d'autres artistes vous offriront des performances inoubliables.</p>
+            </div>
+        </div>
+
+        <!-- Événement 6 -->
+        <div class="relative p-6 bg-black rounded-lg shadow-lg bg-opacity-60 event-card">
+            <img src="img/maajabu21.jpg" alt="Événement 6" class="w-full rounded-lg">
+            <h2 class="mt-4 text-2xl font-bold text-yellow-400">Gospel Festival à Marseille</h2>
+            <p class="mt-2">Le 25 octobre 2025 - 19h00</p>
+            <button class="absolute font-bold text-white bottom-4 right-4 hover:text-yellow-400 show-details" data-event="event6">Voir Détails →</button>
+            <div class="mt-4 event-details" id="event6">
+                <p><strong>Lieu:</strong> Palais des Congrès, Marseille</p>
+                <p><strong>Description:</strong> Un festival célébrant la musique gospel, avec des concerts live de Maajabu Gospel et des invités spéciaux.</p>
+            </div>
+        </div>
+
+        <!-- Événement 7 -->
+        <div class="relative p-6 bg-black rounded-lg shadow-lg bg-opacity-60 event-card">
+            <img src="img/PSX_20230404_231140.jpg" alt="Événement 7" class="w-full rounded-lg">
+            <h2 class="mt-4 text-2xl font-bold text-yellow-400">Gospel à Lille</h2>
+            <p class="mt-2">Le 30 novembre 2025 - 20h30</p>
+            <button class="absolute font-bold text-white bottom-4 right-4 hover:text-yellow-400 show-details" data-event="event7">Voir Détails →</button>
+            <div class="mt-4 event-details" id="event7">
+                <p><strong>Lieu:</strong> Le Nouveau Siècle, Lille</p>
+                <p><strong>Description:</strong> Un concert intime avec Maajabu Gospel, où la musique se mêle à l'énergie unique du public lillois.</p>
+            </div>
+        </div>
+
+        <!-- Événement 8 -->
+        <div class="relative p-6 bg-black rounded-lg shadow-lg bg-opacity-60 event-card">
+            <img src="img/maj2.jpg" alt="Événement 8" class="w-full rounded-lg">
+            <h2 class="mt-4 text-2xl font-bold text-yellow-400">Gospel en Suisse</h2>
+            <p class="mt-2">Le 12 décembre 2025 - 19h00</p>
+            <button class="absolute font-bold text-white bottom-4 right-4 hover:text-yellow-400 show-details" data-event="event8">Voir Détails →</button>
+            <div class="mt-4 event-details" id="event8">
+                <p><strong>Lieu:</strong> Geneva Arena, Genève</p>
+                <p><strong>Description:</strong> Un événement exclusif en Suisse avec une performance exceptionnelle de Maajabu Gospel.</p>
+            </div>
+        </div>
+
+        <!-- Événement 9 -->
+        <div class="relative p-6 bg-black rounded-lg shadow-lg bg-opacity-60 event-card">
+            <img src="img/maajabutalent.jpg" alt="Événement 9" class="w-full rounded-lg">
+            <h2 class="mt-4 text-2xl font-bold text-yellow-400">Soirée Gospel à Bordeaux</h2>
+            <p class="mt-2">Le 15 janvier 2026 - 21h00</p>
+            <button class="absolute font-bold text-white bottom-4 right-4 hover:text-yellow-400 show-details" data-event="event9">Voir Détails →</button>
+            <div class="mt-4 event-details" id="event9">
+                <p><strong>Lieu:</strong> Bordeaux Metropole Arena</p>
+                <p><strong>Description:</strong> Un spectacle plein de surprises et de musiques puissantes pour bien démarrer l'année avec Maajabu Gospel.</p>
+            </div>
+        </div>
+
+        <!-- Événement 10 -->
+        <div class="relative p-6 bg-black rounded-lg shadow-lg bg-opacity-60 event-card">
+            <img src="img/maxresdefault.jpg" alt="Événement 10" class="w-full rounded-lg">
+            <h2 class="mt-4 text-2xl font-bold text-yellow-400">Tour Européen</h2>
+            <p class="mt-2">Le 1er février 2026 - 20h00</p>
+            <button class="absolute font-bold text-white bottom-4 right-4 hover:text-yellow-400 show-details" data-event="event10">Voir Détails →</button>
+            <div class="mt-4 event-details" id="event10">
+                <p><strong>Lieu:</strong> Plusieurs villes européennes</p>
+                <p><strong>Description:</strong> Rejoignez Maajabu Gospel lors de leur tournée à travers l'Europe, avec des concerts exceptionnels dans les plus grandes villes.</p>
+            </div>
+        </div>
+
+    </section>
+    <footer class="px-6 py-12 text-white bg-gray-900">
+        <div class="grid gap-8 mx-auto text-center max-w-7xl md:grid-cols-3 md:text-left">
+            
+            <!-- 🌟 Logo & Description -->
+            <div>
+                <h2 class="text-3xl font-bold text-yellow-500">Maajabu Gospel</h2>
+                <p class="mt-3 text-gray-400">Inspirer, élever et partager la foi à travers la musique gospel.</p>
+            </div>
+    
+            <!-- 🌟 Liens Rapides -->
+            <div>
+                <h3 class="text-lg font-semibold text-white">Navigation</h3>
+                <ul class="mt-3 space-y-2">
+                    <li><a href="./acueil.html" class="text-gray-400 transition hover:text-yellow-500">Accueil</a></li>
+                    <li><a href="./about.html" class="text-gray-400 transition hover:text-yellow-500">À propos</a></li>
+                    <li><a href="./disco.html" class="text-gray-400 transition hover:text-yellow-500">Discographie</a></li>
+                    <li><a href="./contact.html" class="text-gray-400 transition hover:text-yellow-500">Contact</a></li>
+                </ul>
+            </div>
+    
+            <!-- 🌟 Réseaux Sociaux -->
+            <div>
+                <h3 class="text-lg font-semibold text-white">Suivez-nous</h3>
+                <div class="flex justify-center mt-3 space-x-4 md:justify-start">
+                    <a href="#" class="text-2xl text-gray-400 transition transform hover:text-yellow-500 hover:scale-110">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-2xl text-gray-400 transition transform hover:text-yellow-500 hover:scale-110">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-2xl text-gray-400 transition transform hover:text-yellow-500 hover:scale-110">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://youtube.com/@maajabugospel?si=8I9h-7UxigrtBvdP" class="text-2xl text-gray-400 transition transform hover:text-yellow-500 hover:scale-110">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- 🌟 Bas de page -->
+        <div class="pt-4 mt-8 text-center border-t border-gray-700">
+            <p class="text-gray-400">&copy; 2025 Maajabu Gospel. Tous droits réservés.</p>
+        </div>
+    </footer>
+    
+
+    <script>
+        // Fonction pour afficher les détails de chaque événement
+        const eventButtons = document.querySelectorAll('.show-details');
+        eventButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const eventId = button.getAttribute('data-event');
+                const eventDetails = document.getElementById(eventId);
+                eventDetails.classList.toggle('show');
+            });
+        });
+
+        // Animation GSAP pour l'entrée des événements
+        gsap.from('#hero h1', { opacity: 0, y: -100, duration: 1, delay: 0.5 });
+        gsap.from('#hero p', { opacity: 0, y: 100, duration: 1, delay: 1 });
+
+        gsap.from('.event-card', {
+            opacity: 0,
+            y: 50,
+            stagger: 0.3,
+            duration: 1,
+            delay: 2
+        });
+    </script>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

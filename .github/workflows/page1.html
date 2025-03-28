@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maajabu Gospel - Accueil</title>
+    
+    <!-- Import Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- GSAP pour les animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <style>
+        /* Fond dynamique avec dégradé animé */
+        <!-- body {
+            background: linear-gradient(45deg, #111, #222);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        } -->
+        body {
+         background: url('./img/bg1.jpg') no-repeat center center fixed;
+         background-size: cover;
+         background-attachment: fixed; /* Effet de parallaxe */
+     }
+     
+        /* Animation au hover */
+        .hover-zoom {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-zoom:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 30px rgba(255, 255, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="relative">
+
+    <!-- Navbar avec effet sticky -->
+    <nav class="fixed top-0 left-0 z-50 w-full px-6 py-4 text-white bg-black shadow-md bg-opacity-80">
+        <div class="flex items-center justify-between mx-auto max-w-7xl">
+            <h1 class="text-2xl font-bold">Maajabu <span class="text-yellow-500">Gospel</span></h1>
+            <img src="./img/maajabu (1).jpg" alt="Logo" class="w-12 h-12 rounded-full shadow-md">
+        </div>
+    </nav>
+
+    <!-- Section d'introduction avec animation -->
+    <header class="flex flex-col items-center justify-center h-screen text-center" id="hero">
+        <h1 class="text-5xl font-extrabold text-yellow-400 opacity-0">Bienvenue sur Maajabu Gospel</h1>
+        <p class="mt-4 text-lg opacity-0">Découvrez nos événements, galeries et bien plus !</p>
+    </header>
+
+    <!-- Section principale avec effets de scroll -->
+    <section class="grid gap-6 px-6 py-12 mx-auto max-w-7xl md:grid-cols-3">
+        
+        <!-- Box A propos -->
+        <div class="relative p-6 bg-yellow-500 rounded-lg shadow-lg opacity-0 hover-zoom">
+            <h2 class="text-2xl font-bold">À Propos</h2>
+            <p class="mt-2">Découvrez notre histoire et notre mission.</p>
+            <a href="./about.html" class="absolute font-bold text-white bottom-4 right-4">→</a>
+        </div>
+
+        <!-- Box Contact -->
+        <div class="relative p-6 bg-blue-500 rounded-lg shadow-lg opacity-0 hover-zoom">
+            <h2 class="text-2xl font-bold">Contact</h2>
+            <p class="mt-2">Besoin d'informations ? Contactez-nous.</p>
+            <a href="#" class="absolute font-bold text-white bottom-4 right-4">→</a>
+        </div>
+
+        <!-- Box Événements -->
+        <div class="relative p-6 bg-red-500 rounded-lg shadow-lg opacity-0 hover-zoom">
+            <h2 class="text-2xl font-bold">Événements</h2>
+            <p class="mt-2">Participez à nos événements musicaux.</p>
+            <a href="#" class="absolute font-bold text-white bottom-4 right-4">→</a>
+        </div>
+
+        <!-- Box Galerie -->
+        <div class="relative p-6 bg-purple-500 rounded-lg shadow-lg opacity-0 hover-zoom">
+            <h2 class="text-2xl font-bold">Galerie</h2>
+            <p class="mt-2">Explorez nos plus beaux moments en images.</p>
+            <a href="#" class="absolute font-bold text-white bottom-4 right-4">→</a>
+        </div>
+
+        <!-- Box Membres -->
+        <div class="relative p-6 bg-green-500 rounded-lg shadow-lg opacity-0 hover-zoom">
+            <h2 class="text-2xl font-bold">Membres</h2>
+            <p class="mt-2">Rejoignez notre communauté musicale.</p>
+            <a href="#" class="absolute font-bold text-white bottom-4 right-4">→</a>
+        </div>
+
+        <!-- Box Infos -->
+        <div class="relative p-6 bg-gray-700 rounded-lg shadow-lg opacity-0 hover-zoom">
+            <h2 class="text-2xl font-bold">Infos</h2>
+            <p class="mt-2">Restez informé des dernières actualités.</p>
+            <a href="#" class="absolute font-bold text-white bottom-4 right-4">→</a>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 text-center text-gray-400 bg-black">
+        <p class="text-lg">Suivez-nous sur :</p>
+        <div class="flex justify-center mt-4 space-x-6">
+            <a href="#" class="text-blue-500 hover:text-yellow-400"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-pink-500 hover:text-yellow-400"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-blue-400 hover:text-yellow-400"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-red-500 hover:text-yellow-400"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="mt-4">&copy; 2025 Maajabu Gospel. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Script GSAP pour animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.fromTo("#hero h1", { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: 0.5 });
+            gsap.fromTo("#hero p", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: 1 });
+
+            gsap.utils.toArray("section div").forEach((box, index) => {
+                gsap.fromTo(box, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: index * 0.3 });
+            });
+        });
+    </script>
+
+</body>
+</html>
