@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/output.css">
+    <title>Event</title>
+</head>
+<body>
+    <nav class="md:w-full h-[15vh] bg-gray-500 flex items-center justify-between p-4 relative">
+        <h1 class="capitalize">logo</h1>
+        <ul class="hidden flex md:flex items-center justify-evenly gap-4 w-[50%]">
+            <li><a href="#">accueil</a></li>
+            <li><a href="#">a propos</a></li>
+            <li><a href="#">services</a></li>
+            <li><a href="#">contact</a></li>
+            <button class="px-8 py-3 rounded-xl bg-blue-600">connexion</button>
+        </ul>
+        
+        <div class="hambourger md:hidden relative">
+            <i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-6-square-fill" viewBox="0 0 16 16">
+                    <path d="M8.111 7.863c-.92 0-1.564.65-1.564 1.576 0 1.032.703 1.635 1.558 1.635.868 0 1.553-.533 1.553-1.629 0-1.06-.744-1.582-1.547-1.582"/>
+                    <path d="M8 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v2a2 2 0 0 0-2-2zm6.21 3.855c1.612 0 2.515.99 2.573 1.899H9.494c-.1-.358-.51-.815-1.312-.815-1.078">
+                </svg>
+            </i>
+            <div class="liste absolute right=3 w-[60%] h-[50vh] opacity-0 pointer-events-none -transform-Y-[-50%] bg-red-300">
+                <div class="hambourger_close absolute right-3 text-2xl font-bold size-8 bg-red-600 flex items-center">&copy;</div>
+                <ul class="flex flex-col justify-center gap-4 w-[80%] h-[35vh] p-4 font-bold">
+                    <li><a href="#">accueil</a></li>
+                    <li><a href="#">a propos</a></li>
+                    <li><a href="#">services</a></li>
+                    <li><a href="#">contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="md:w-full md:h-[80vh] bg-red-500 md:flex items-center justify-center">
+        <div class="md:w-[45%] h-[75vh] font-bold flex flex-col items-center">
+            <h1 class="text-4xl font-bold bg-gradient-to-br from-blue-400 to-blue-700 text-transparent bg-clip-text text-center">Lorem ipsum dolor</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum fuga in sunt eos, facilis voluptate aspernatur explicabo quam dicta, accusamus itaque optio ab sequi molestiae nesciunt consequuntur deserunt et ducimus?</p>
+            <div class="w-[100%] h-[15vh] flex items-center justify-center gap-4">
+                <button class="px-8 py-3 bg-gradient-to-br from-blue-300 to-blue-700 rounded-xl"><a href="#">savoir plus</a></button>
+                <button class="px-8 py-3 bg-gradient-to-br from-blue-300 to-blue-700 rounded-xl"><a href="#">savoir plus</a></button>
+            </div>
+           
+        </div>
+        <div class="image md:w-[45%] h-[75vh] bg-gradient-to-br from-blue-300 to-blue-700"></div>
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>
